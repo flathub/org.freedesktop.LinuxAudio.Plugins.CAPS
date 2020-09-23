@@ -3,7 +3,7 @@
   <id>org.freedesktop.LinuxAudio.Plugins.CAPS</id>
   <extends>org.freedesktop.LinuxAudio.BaseExtension</extends>
   <name>CAPS</name>
-  <summary>C* Audio Plugin Suite LADSPA</summary>
+  <summary>C* Audio Plugin Suite LADSPA/LV2</summary>
   <url type="homepage">http://quitte.de/dsp/caps.html</url>
   <project_license>GPL-3.0+</project_license>
   <metadata_license>CC0-1.0</metadata_license>

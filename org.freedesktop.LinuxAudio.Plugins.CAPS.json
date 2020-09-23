@@ -7,9 +7,38 @@
     "build-extension": true,
     "appstream-compose": false,
     "build-options": {
-        "prefix": "/app/extensions/Plugins/CAPS"
+        "prefix": "/app/extensions/Plugins/CAPS",
+        "prepend-pkg-config-path": "/app/extensions/Plugins/CAPS/lib/pkgconfig"
     },
+    "cleanup": [
+        "/lib/lv2"
+    ],
     "modules": [
+        "shared-modules/linux-audio/lv2.json",
+        {
+            "name": "caps-lv2",
+            "buildsystem": "simple",
+            "build-options": {
+                "env": {
+                    "PREFIX": "${FLATPAK_DEST}"
+                }
+            },
+            "build-commands": [
+                "make",
+                "make install"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/moddevices/caps-lv2",
+                    "commit": "5d52a0c6e8863c058c2aab2dea9f901a90d96eb9"
+                },
+                {
+                    "type": "patch",
+                    "path": "caps-lv2-fixes.patch"
+                }
+            ]
+        },
         {
             "name": "caps",
             "buildsystem": "simple",
