@@ -20,7 +20,8 @@
             "buildsystem": "simple",
             "build-options": {
                 "env": {
-                    "PREFIX": "${FLATPAK_DEST}"
+                    "PREFIX": "${FLATPAK_DEST}",
+                    "LV2DIR": "${FLATPAK_DEST}/lv2"
                 }
             },
             "build-commands": [
@@ -35,7 +36,11 @@
                 },
                 {
                     "type": "patch",
-                    "path": "caps-lv2-fixes.patch"
+                    "path": "0001-Honour-PREFIX-if-set.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "0002-Honour-LV2DIR.patch"
                 }
             ]
         },
